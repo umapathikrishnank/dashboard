@@ -1,6 +1,5 @@
 import * as React from "react"
 import * as SwitchPrimitive from "@radix-ui/react-switch"
-
 import { cn } from "@/lib/utils"
 
 function Switch({
@@ -11,7 +10,8 @@ function Switch({
     <SwitchPrimitive.Root
       data-slot="switch"
       className={cn(
-        "peer data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        "relative inline-flex h-6 w-12 cursor-pointer items-center rounded-[100px] transition-colors outline outline-2 outline-sky-500 shadow-[inset_0px_3px_20px_0px_rgba(0,0,0,0.15)]",
+        "bg-gradient-to-b from-gray-200 to-stone-300 data-[state=checked]:from-sky-600 data-[state=checked]:to-sky-700",
         className
       )}
       {...props}
@@ -19,7 +19,9 @@ function Switch({
       <SwitchPrimitive.Thumb
         data-slot="switch-thumb"
         className={cn(
-          "bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block size-4 rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0"
+          "absolute top-0 h-6 w-6 rounded-[100px] transition-transform duration-200",
+          "bg-gradient-to-b from-gray-200 to-stone-300 shadow-[0px_0px_4px_0px_rgba(0,0,0,0.35)] outline outline-2 outline-sky-600",
+          "data-[state=checked]:translate-x-6 translate-x-0"
         )}
       />
     </SwitchPrimitive.Root>
